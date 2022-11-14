@@ -15,16 +15,35 @@ for (let i = 0; i < relevantDOMElements.length; i++) {
   const textForI = document.createTextNode(` ${i}`);
   relevantDOMElements[i].appendChild(textForI);
 
-  document.create
+  document.create;
 }
 
 // 2. when click div console.log(which div it is on the page, i.e. 0..n-1)
 // get a ref to each div in DOM
+
 relevantDOMElements = document.getElementsByTagName("div");
 Array.from(relevantDOMElements).forEach((divElem, i) => {
-console.log(`i: ${i} relevantDOMElements[i]: ${relevantDOMElements[i].innerText}`);
+  divElem.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    console.log(`div: ${i}`)
+    // console.log(`i: ${i} relevantDOMElements[i]: ${relevantDOMElements[i].innerText}`);
+  });
+  
 })
 
-// add event listener to each div
 
 // 3. element with id "donut" is clicked, log the number of words in the element
+
+relevantDOMElements = document.getElementById("donut");
+relevantDOMElements.addEventListener("click", function (ev) {
+  ev.preventDefault();
+  console.log(`words in donut: ${count(relevantDOMElements.innerText)}`);
+});
+
+function count(str) {
+  return str.split(' ')
+    .filter(function (split) {
+      return split != '';
+    })
+    .length;
+}
