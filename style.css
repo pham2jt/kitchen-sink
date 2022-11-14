@@ -5,4 +5,12 @@ li {
 
 /* 2. make div border orange */
 
+div {
+  border: 1px solid orange;
+}
+
 /* 3. make element with id "donut" background pink */
+
+#donut {
+  background-color: pink;
+}
